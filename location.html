@@ -1,0 +1,76 @@
+<!-- FILE: /location.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Location – Harova Apartment, Jaffa Flea Market</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Harova Apartment is located next to the Jaffa Flea Market (Shuk HaPishpeshim) in Tel Aviv-Yafo, a short walk from Old Jaffa and the sea."
+  />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-block">
+      <div class="logo-title">Harova Apartment</div>
+      <div class="logo-subtitle">Jaffa Flea Market • Tel Aviv-Yafo</div>
+    </div>
+    <nav class="top-nav">
+      <a href="/index.html">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/location.html">Location</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section content-narrow">
+      <h1>Location</h1>
+      <p>
+        Harova Apartment is in the Jaffa Flea Market area (Shuk HaPishpeshim),
+        a historic and colourful neighbourhood in Tel Aviv-Yafo filled with
+        vintage shops, designer boutiques, cafés and wine bars.
+      </p>
+      <p>
+        You’re a short walk from Old Jaffa, the port, Jaffa Clock Tower, and
+        the beachfront promenade that leads all the way to central Tel Aviv.
+      </p>
+
+      <h2>Distances on foot</h2>
+      <ul class="feature-list">
+        <li>≈ 3–5 minutes to Jaffa Flea Market</li>
+        <li>≈ 8–10 minutes to Old Jaffa and Jaffa Port</li>
+        <li>≈ 8–12 minutes to the beach and promenade</li>
+        <li>Short taxi or bus ride to central Tel Aviv</li>
+      </ul>
+
+      <h2>Map</h2>
+      <p class="small">
+        For privacy, the exact address is shared after booking. The map below
+        shows the general area of the apartment in Jaffa.
+      </p>
+
+      <!-- Simple embedded map – you can later replace src with your exact map link -->
+      <iframe
+        title="Jaffa Flea Market area"
+        src="https://www.google.com/maps/embed?pb=!1m2!1m1!1s0x151d4c995b3cf6d1:0x97cdf79fba399a27"
+        width="100%"
+        height="300"
+        style="border:0; border-radius:12px; margin-top:0.75rem;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
