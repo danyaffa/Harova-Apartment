@@ -1,0 +1,68 @@
+<!-- FILE: /gallery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallery – Harova Apartment, Jaffa Flea Market</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Photo gallery of Harova Apartment in the Jaffa Flea Market – living room, bedrooms, kitchen and surroundings."
+  />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-block">
+      <div class="logo-title">Harova Apartment</div>
+      <div class="logo-subtitle">Jaffa Flea Market • Tel Aviv-Yafo</div>
+    </div>
+    <nav class="top-nav">
+      <a href="/index.html">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/location.html">Location</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="section">
+      <h1>Gallery</h1>
+      <p>
+        A glimpse of Harova Apartment and the Jaffa Flea Market neighbourhood.
+        For more photos and up-to-date details, visit the Airbnb listing.
+      </p>
+
+      <div class="gallery-grid">
+        <!-- Replace filenames with your real images in /public/images/ -->
+        <div class="gallery-item">
+          <img src="/images/living-room.jpg" alt="Living room" />
+        </div>
+        <div class="gallery-item">
+          <img src="/images/bedroom-main.jpg" alt="Main bedroom" />
+        </div>
+        <div class="gallery-item">
+          <img src="/images/bedroom-second.jpg" alt="Second bedroom" />
+        </div>
+        <div class="gallery-item">
+          <img src="/images/kitchen.jpg" alt="Kitchen" />
+        </div>
+        <div class="gallery-item">
+          <img src="/images/bathroom.jpg" alt="Bathroom" />
+        </div>
+        <div class="gallery-item">
+          <img src="/images/view-street.jpg" alt="Street and Flea Market area" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
