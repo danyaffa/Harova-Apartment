@@ -1,22 +1,24 @@
 <!-- FILE: /sitemap.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://YOUR-DOMAIN.com/</loc>
+    <loc>https://holidayapartmenttelavivjaffa.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/gallery.html</loc>
+    <loc>https://holidayapartmenttelavivjaffa.com/gallery.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/location.html</loc>
+    <loc>https://holidayapartmenttelavivjaffa.com/location.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/contact.html</loc>
+    <loc>https://holidayapartmenttelavivjaffa.com/contact.html</loc>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://holidayapartmenttelavivjaffa.com/ai-discovery.html</loc>
+    <priority>0.6</priority>
   </url>
 </urlset>
