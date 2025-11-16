@@ -1,14 +1,15 @@
-<!-- FILE: /gallery.html -->
+<!-- FILE: /contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Gallery – Harova Apartment, Jaffa Flea Market</title>
+  <title>Contact & Booking – Harova Apartment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Photo gallery of Harova Apartment in the Jaffa Flea Market – living room, kitchen, dining area and surroundings."
+    content="Contact the hosts of Harova Apartment in Jaffa Flea Market, or book securely via Airbnb."
   />
+  <link rel="canonical" href="https://holidayapartmenttelavivjaffa.com/contact.html" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -19,48 +20,82 @@
     </div>
     <nav class="top-nav">
       <a href="/index.html">Home</a>
-      <a href="/gallery.html" class="active">Gallery</a>
+      <a href="/gallery.html">Gallery</a>
       <a href="/location.html">Location</a>
-      <a href="/contact.html">Contact</a>
+      <a href="/contact.html" class="active">Contact</a>
       <a href="/ai-discovery.html">AI Discovery</a>
     </nav>
   </header>
 
   <main class="page">
-    <section class="section">
-      <h1>Gallery</h1>
+    <section class="section content-narrow">
+      <h1>Contact &amp; Booking</h1>
       <p>
-        A closer look at Harova Apartment. Click any photo to view it full screen.
+        Harova Apartment is managed by professional holiday-rental agents.
+        For your security and convenience, all bookings and payments are
+        handled through our Airbnb listing.
       </p>
 
-      <div class="gallery-grid" id="gallery-grid">
-        <!-- Same images as hero + more if you like -->
-        <div class="gallery-item">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/04504c49-8e40-49e4-875f-f2e9e3b766e4.jpeg?im_w=720" alt="Living room with balcony doors" />
+      <h2>Book on Airbnb</h2>
+      <ul class="feature-list">
+        <li>
+          <strong>Airbnb listing:</strong>
+          <a
+            href="https://www.airbnb.com.au/rooms/684477088875296411"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View prices, availability and reviews
+          </a>
+        </li>
+      </ul>
+
+      <h2>Prepare your message to the host</h2>
+      <p class="small">
+        Use this short form to prepare your enquiry. When you click
+        <strong>Send enquiry &amp; go to Airbnb</strong>, you’ll be redirected
+        to Airbnb to complete the booking, and you can copy this message into
+        the Airbnb chat with the host.
+      </p>
+
+      <form id="enquiry-form" class="enquiry-form">
+        <label>
+          Your name
+          <input type="text" id="enquiry-name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" id="enquiry-email" required />
+        </label>
+
+        <div class="enquiry-row">
+          <label>
+            Check-in date
+            <input type="date" id="enquiry-checkin" />
+          </label>
+          <label>
+            Check-out date
+            <input type="date" id="enquiry-checkout" />
+          </label>
         </div>
-        <div class="gallery-item">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/37182348-d6be-4782-88fe-70c04d3acf7e.jpeg?im_w=720" alt="Spacious lounge area" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/f5fd09cd-73d8-4737-87f8-5127b98164c3.jpeg?im_w=720" alt="Living room and kitchen overview" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/16daac06-bb77-465e-aebb-917a45afbac9.jpeg?im_w=720" alt="Dining table and sofa area" />
-        </div>
-        <div class="gallery-item">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/878fb068-86ae-4915-b438-47d7a5e1bada.jpeg?im_w=720" alt="Fully equipped modern kitchen" />
-        </div>
-      </div>
+
+        <label>
+          Number of guests
+          <input type="number" id="enquiry-guests" min="1" max="4" value="2" />
+        </label>
+
+        <label>
+          Message to host (optional)
+          <textarea id="enquiry-message" rows="4" placeholder="Example: We arrive late at night, is self check-in possible?"></textarea>
+        </label>
+
+        <button type="submit" class="btn primary">
+          Send enquiry &amp; go to Airbnb
+        </button>
+      </form>
     </section>
   </main>
-
-  <!-- ✅ Lightbox overlay -->
-  <div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
-    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close">&times;</button>
-    <button class="lightbox-nav prev" id="lightbox-prev" type="button" aria-label="Previous image">&#10094;</button>
-    <img id="lightbox-image" src="" alt="Full-size apartment photo" />
-    <button class="lightbox-nav next" id="lightbox-next" type="button" aria-label="Next image">&#10095;</button>
-  </div>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
@@ -69,57 +104,29 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Lightbox logic
-    (function () {
-      const overlay = document.getElementById("lightbox-overlay");
-      const lightboxImg = document.getElementById("lightbox-image");
-      const closeBtn = document.getElementById("lightbox-close");
-      const prevBtn = document.getElementById("lightbox-prev");
-      const nextBtn = document.getElementById("lightbox-next");
-      const images = Array.from(document.querySelectorAll(".gallery-item img"));
+    // On submit, show a simple summary and redirect user to Airbnb
+    document.getElementById("enquiry-form").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      if (!images.length) return;
+      const name = (document.getElementById("enquiry-name").value || "").trim();
+      const email = (document.getElementById("enquiry-email").value || "").trim();
+      const checkin = document.getElementById("enquiry-checkin").value;
+      const checkout = document.getElementById("enquiry-checkout").value;
+      const guests = document.getElementById("enquiry-guests").value;
+      const msg = (document.getElementById("enquiry-message").value || "").trim();
 
-      let currentIndex = 0;
+      let summary = "Copy this text and paste it into the Airbnb message box:\n\n";
+      summary += "Name: " + name + "\n";
+      summary += "Email: " + email + "\n";
+      if (checkin) summary += "Check-in: " + checkin + "\n";
+      if (checkout) summary += "Check-out: " + checkout + "\n";
+      if (guests) summary += "Guests: " + guests + "\n";
+      if (msg) summary += "Message: " + msg + "\n";
 
-      function openLightbox(index) {
-        currentIndex = index;
-        lightboxImg.src = images[index].src;
-        overlay.classList.add("open");
-        overlay.setAttribute("aria-hidden", "false");
-      }
+      alert(summary);
 
-      function closeLightbox() {
-        overlay.classList.remove("open");
-        overlay.setAttribute("aria-hidden", "true");
-      }
-
-      function showNext(delta) {
-        currentIndex = (currentIndex + delta + images.length) % images.length;
-        lightboxImg.src = images[currentIndex].src;
-      }
-
-      images.forEach((img, index) => {
-        img.style.cursor = "pointer";
-        img.addEventListener("click", () => openLightbox(index));
-      });
-
-      closeBtn.addEventListener("click", closeLightbox);
-
-      overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) closeLightbox();
-      });
-
-      prevBtn.addEventListener("click", () => showNext(-1));
-      nextBtn.addEventListener("click", () => showNext(1));
-
-      document.addEventListener("keydown", (e) => {
-        if (!overlay.classList.contains("open")) return;
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") showNext(1);
-        if (e.key === "ArrowLeft") showNext(-1);
-      });
-    })();
+      window.open("https://www.airbnb.com.au/rooms/684477088875296411", "_blank");
+    });
   </script>
 </body>
 </html>
