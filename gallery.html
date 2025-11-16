@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Photo gallery of Harova Apartment in the Jaffa Flea Market – living room, bedrooms, kitchen and surroundings."
+    content="Photo gallery of Harova Apartment in the Jaffa Flea Market – living room, kitchen, dining area and surroundings."
   />
   <link rel="stylesheet" href="/styles.css" />
 </head>
@@ -22,6 +22,7 @@
       <a href="/gallery.html" class="active">Gallery</a>
       <a href="/location.html">Location</a>
       <a href="/contact.html">Contact</a>
+      <a href="/ai-discovery.html">AI Discovery</a>
     </nav>
   </header>
 
@@ -29,33 +30,96 @@
     <section class="section">
       <h1>Gallery</h1>
       <p>
-        Browse all images of Harova Apartment from our official listing.
+        A closer look at Harova Apartment. Click any photo to view it full screen.
       </p>
 
-      <div class="gallery-grid">
-        <!-- Auto-linked images from your agent website -->
-        <img src="https://uc.uxpin.com/files/5ae65d1dcbf7c8005eb1e1b8.webp" class="gallery-item" alt="Apartment photo 1">
-        <img src="https://uc.uxpin.com/files/7f7a24c51ec15c005ebe3d20.webp" class="gallery-item" alt="Apartment photo 2">
-        <img src="https://uc.uxpin.com/files/2c0ceec8dcf52200394a8e26.webp" class="gallery-item" alt="Apartment photo 3">
-        <img src="https://uc.uxpin.com/files/b6d5e8a982afc60072633904.webp" class="gallery-item" alt="Apartment photo 4">
-        <img src="https://uc.uxpin.com/files/608ec820dfb67900218c8749.webp" class="gallery-item" alt="Apartment photo 5">
-        <img src="https://uc.uxpin.com/files/c0c7d1e0656f440054cc949c.webp" class="gallery-item" alt="Apartment photo 6">
-        <img src="https://uc.uxpin.com/files/08d0dcc9cbf7b20037a42d79.webp" class="gallery-item" alt="Apartment photo 7">
-        <img src="https://uc.uxpin.com/files/5090c12c82afbd0063b338b3.webp" class="gallery-item" alt="Apartment photo 8">
-        <img src="https://uc.uxpin.com/files/341bc436dcf522002b548be3.webp" class="gallery-item" alt="Apartment photo 9">
-        <img src="https://uc.uxpin.com/files/ef9be86f65bd020053adbb32.webp" class="gallery-item" alt="Apartment photo 10">
-        <img src="https://uc.uxpin.com/files/e74a7608dfb67700218c8751.webp" class="gallery-item" alt="Apartment photo 11">
-        <img src="https://uc.uxpin.com/files/f265365dccf52400394a8e03.webp" class="gallery-item" alt="Apartment photo 12">
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Same images as hero + more if you like -->
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/04504c49-8e40-49e4-875f-f2e9e3b766e4.jpeg?im_w=720" alt="Living room with balcony doors" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/37182348-d6be-4782-88fe-70c04d3acf7e.jpeg?im_w=720" alt="Spacious lounge area" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/f5fd09cd-73d8-4737-87f8-5127b98164c3.jpeg?im_w=720" alt="Living room and kitchen overview" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/16daac06-bb77-465e-aebb-917a45afbac9.jpeg?im_w=720" alt="Dining table and sofa area" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/878fb068-86ae-4915-b438-47d7a5e1bada.jpeg?im_w=720" alt="Fully equipped modern kitchen" />
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- ✅ Lightbox overlay -->
+  <div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox-nav prev" id="lightbox-prev" type="button" aria-label="Previous image">&#10094;</button>
+    <img id="lightbox-image" src="" alt="Full-size apartment photo" />
+    <button class="lightbox-nav next" id="lightbox-next" type="button" aria-label="Next image">&#10095;</button>
+  </div>
+
   <footer class="site-footer">
-    <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo</p>
+    <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Lightbox logic
+    (function () {
+      const overlay = document.getElementById("lightbox-overlay");
+      const lightboxImg = document.getElementById("lightbox-image");
+      const closeBtn = document.getElementById("lightbox-close");
+      const prevBtn = document.getElementById("lightbox-prev");
+      const nextBtn = document.getElementById("lightbox-next");
+      const images = Array.from(document.querySelectorAll(".gallery-item img"));
+
+      if (!images.length) return;
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = images[index].src;
+        overlay.classList.add("open");
+        overlay.setAttribute("aria-hidden", "false");
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+
+      function showNext(delta) {
+        currentIndex = (currentIndex + delta + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+      }
+
+      images.forEach((img, index) => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", () => openLightbox(index));
+      });
+
+      closeBtn.addEventListener("click", closeLightbox);
+
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeLightbox();
+      });
+
+      prevBtn.addEventListener("click", () => showNext(-1));
+      nextBtn.addEventListener("click", () => showNext(1));
+
+      document.addEventListener("keydown", (e) => {
+        if (!overlay.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext(1);
+        if (e.key === "ArrowLeft") showNext(-1);
+      });
+    })();
   </script>
 </body>
 </html>
