@@ -1,13 +1,13 @@
-<!-- FILE: /contact.html -->
+<!-- FILE: /gallery.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact & Booking – Harova Apartment</title>
+  <title>Gallery – Harova Apartment, Jaffa Flea Market</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Contact the agents for Harova Apartment in Jaffa Flea Market, or book securely via Airbnb."
+    content="Photo gallery of Harova Apartment in the Jaffa Flea Market – living room, kitchen, dining area and surroundings."
   />
   <link rel="stylesheet" href="/styles.css" />
 </head>
@@ -19,53 +19,48 @@
     </div>
     <nav class="top-nav">
       <a href="/index.html">Home</a>
-      <a href="/gallery.html">Gallery</a>
+      <a href="/gallery.html" class="active">Gallery</a>
       <a href="/location.html">Location</a>
       <a href="/contact.html">Contact</a>
+      <a href="/ai-discovery.html">AI Discovery</a>
     </nav>
   </header>
 
   <main class="page">
-    <section class="section content-narrow">
-      <h1>Contact & Booking</h1>
+    <section class="section">
+      <h1>Gallery</h1>
       <p>
-        Harova Apartment is managed by professional holiday-rental agents.
-        All bookings and payments are handled securely through Airbnb or the
-        agent’s booking system.
+        A closer look at Harova Apartment. Click any photo to view it full screen.
       </p>
 
-      <h2>Book online</h2>
-      <ul class="feature-list">
-        <li>
-          <strong>Airbnb:</strong>
-          <a
-            href="https://www.airbnb.com.au/rooms/684477088875296411?viralityEntryPoint=1&s=76"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View listing &amp; availability
-          </a>
-        </li>
-        <li>
-          <strong>Agent website:</strong>
-          <a
-            href="https://holiday-rentals.guestybookings.com/en/properties/62ea5cbd4b87300033e2c9a3"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Holiday Rentals – Harova Apartment
-          </a>
-        </li>
-      </ul>
-
-      <h2>Questions before you book?</h2>
-      <p>
-        If you have special requests (late check-in, baby cot, longer stays,
-        etc.), please send a message through the Airbnb messaging system or via
-        the agent’s website when you submit your enquiry.
-      </p>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Same images as hero + more if you like -->
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/04504c49-8e40-49e4-875f-f2e9e3b766e4.jpeg?im_w=720" alt="Living room with balcony doors" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/37182348-d6be-4782-88fe-70c04d3acf7e.jpeg?im_w=720" alt="Spacious lounge area" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/f5fd09cd-73d8-4737-87f8-5127b98164c3.jpeg?im_w=720" alt="Living room and kitchen overview" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/16daac06-bb77-465e-aebb-917a45afbac9.jpeg?im_w=720" alt="Dining table and sofa area" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/878fb068-86ae-4915-b438-47d7a5e1bada.jpeg?im_w=720" alt="Fully equipped modern kitchen" />
+        </div>
+      </div>
     </section>
   </main>
+
+  <!-- ✅ Lightbox overlay -->
+  <div class="lightbox-overlay" id="lightbox-overlay" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox-nav prev" id="lightbox-prev" type="button" aria-label="Previous image">&#10094;</button>
+    <img id="lightbox-image" src="" alt="Full-size apartment photo" />
+    <button class="lightbox-nav next" id="lightbox-next" type="button" aria-label="Next image">&#10095;</button>
+  </div>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
@@ -73,6 +68,58 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Lightbox logic
+    (function () {
+      const overlay = document.getElementById("lightbox-overlay");
+      const lightboxImg = document.getElementById("lightbox-image");
+      const closeBtn = document.getElementById("lightbox-close");
+      const prevBtn = document.getElementById("lightbox-prev");
+      const nextBtn = document.getElementById("lightbox-next");
+      const images = Array.from(document.querySelectorAll(".gallery-item img"));
+
+      if (!images.length) return;
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = images[index].src;
+        overlay.classList.add("open");
+        overlay.setAttribute("aria-hidden", "false");
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove("open");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+
+      function showNext(delta) {
+        currentIndex = (currentIndex + delta + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+      }
+
+      images.forEach((img, index) => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", () => openLightbox(index));
+      });
+
+      closeBtn.addEventListener("click", closeLightbox);
+
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeLightbox();
+      });
+
+      prevBtn.addEventListener("click", () => showNext(-1));
+      nextBtn.addEventListener("click", () => showNext(1));
+
+      document.addEventListener("keydown", (e) => {
+        if (!overlay.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext(1);
+        if (e.key === "ArrowLeft") showNext(-1);
+      });
+    })();
   </script>
 </body>
 </html>
