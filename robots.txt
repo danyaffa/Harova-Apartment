@@ -1,6 +1,5 @@
 # FILE: /robots.txt
-
 User-agent: *
-Allow: /
+Disallow:
 
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://holidayapartmenttelavivjaffa.com/sitemap.xml
