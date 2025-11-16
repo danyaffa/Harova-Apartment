@@ -91,4 +91,216 @@
           </div>
 
           <button class="hero-slider-btn prev" type="button" aria-label="Previous photo">&#10094;</button>
-          <button class="hero-slider-btn n
+          <button class="hero-slider-btn next" type="button" aria-label="Next photo">&#10095;</button>
+
+          <div class="hero-dots" id="hero-dots">
+            <button class="hero-dot active" type="button" aria-label="Slide 1"></button>
+            <button class="hero-dot" type="button" aria-label="Slide 2"></button>
+            <button class="hero-dot" type="button" aria-label="Slide 3"></button>
+            <button class="hero-dot" type="button" aria-label="Slide 4"></button>
+            <button class="hero-dot" type="button" aria-label="Slide 5"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section two-cols">
+      <div>
+        <h2>The Apartment</h2>
+        <p>
+          Relax in a modern, fully equipped apartment in a lively historic
+          neighbourhood. Step outside to discover the Jaffa Flea Market,
+          artisan boutiques, cafés, wine bars and some of the best restaurants
+          in Tel Aviv-Yafo.
+        </p>
+        <p>
+          The apartment includes a safe room (mamad), a full kitchen and
+          comfortable living area, so you can feel at home while exploring the
+          city and coastline.
+        </p>
+      </div>
+      <div>
+        <h3>Key features</h3>
+        <ul class="feature-list">
+          <li>❖ Entire apartment – your own private space</li>
+          <li>❖ 2 bedrooms (sleeps up to 4 guests)</li>
+          <li>❖ 2 bathrooms with shower</li>
+          <li>❖ Safe room (mamad) inside the apartment</li>
+          <li>❖ Fully equipped kitchen</li>
+          <li>❖ High-speed Wi-Fi & TV</li>
+          <li>❖ Lift in the building</li>
+          <li>❖ Free parking in the garage</li>
+          <li>❖ Air-conditioning & heating</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Perfect Jaffa location</h2>
+      <p>
+        Harova Apartment is in a quiet street right next to Jaffa’s bustling
+        Flea Market. You’re within walking distance of the Old City of Jaffa,
+        the port, Jaffa Clock Tower, and the beachfront promenade towards Tel
+        Aviv.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Walk everywhere</h3>
+          <p>
+            Stroll to the sea, Old Jaffa, trendy cafés and galleries – no car
+            needed once you arrive.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Atmosphere</h3>
+          <p>
+            Enjoy the unique vibe of the shuk on Friday afternoons and calm
+            evenings after Shabbat comes in.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Easy access</h3>
+          <p>
+            Free parking and lift access make arrivals and departures simple,
+            even with luggage.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Book your stay</h2>
+      <p>
+        All bookings and payments are handled safely through our Airbnb
+        listing and our professional agents.
+      </p>
+      <div class="hero-ctas">
+        <a
+          class="btn primary"
+          href="https://www.airbnb.com.au/rooms/684477088875296411"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Check availability on Airbnb
+        </a>
+        <a
+          class="btn outline"
+          href="https://holiday-rentals.guestybookings.com/en/properties/62ea5cbd4b87300033e2c9a3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Contact our agents
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
+    <p class="small">
+      Managed by professional holiday-rental agents. All bookings via Airbnb or
+      agent’s website.
+    </p>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple hero slider
+    (function () {
+      const slider = document.getElementById("hero-slider");
+      if (!slider) return;
+
+      const slides = Array.from(slider.querySelectorAll(".hero-slide"));
+      const dots = Array.from(document.getElementById("hero-dots").children);
+      const prevBtn = slider.querySelector(".hero-slider-btn.prev");
+      const nextBtn = slider.querySelector(".hero-slider-btn.next");
+
+      let current = 0;
+      let timer;
+
+      function showSlide(index) {
+        slides.forEach((s, i) => {
+          s.classList.toggle("active", i === index);
+        });
+        dots.forEach((d, i) => {
+          d.classList.toggle("active", i === index);
+        });
+        current = index;
+      }
+
+      function nextSlide() {
+        showSlide((current + 1) % slides.length);
+      }
+
+      function prevSlide() {
+        showSlide((current - 1 + slides.length) % slides.length);
+      }
+
+      function startAuto() {
+        stopAuto();
+        timer = setInterval(nextSlide, 5000);
+      }
+
+      function stopAuto() {
+        if (timer) clearInterval(timer);
+      }
+
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        startAuto();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        startAuto();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showSlide(index);
+          startAuto();
+        });
+      });
+
+      slider.addEventListener("mouseenter", stopAuto);
+      slider.addEventListener("mouseleave", startAuto);
+
+      showSlide(0);
+      startAuto();
+    })();
+  </script>
+
+  <!-- ✅ STRUCTURED DATA (Apartment with full image list) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Apartment",
+    "name": "Harova Apartment – Jaffa Flea Market",
+    "description": "2-bedroom, 2-bathroom apartment with safe room (mamad) and free parking in the heart of Jaffa Flea Market, Tel Aviv-Yafo.",
+    "image": [
+      "https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/04504c49-8e40-49e4-875f-f2e9e3b766e4.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/37182348-d6be-4782-88fe-70c04d3acf7e.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/f5fd09cd-73d8-4737-87f8-5127b98164c3.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/16daac06-bb77-465e-aebb-917a45afbac9.jpeg?im_w=720",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/878fb068-86ae-4915-b438-47d7a5e1bada.jpeg?im_w=720"
+    ],
+    "numberOfRooms": 3,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tel Aviv-Yafo",
+      "addressRegion": "Tel Aviv District",
+      "addressCountry": "IL"
+    },
+    "maximumAttendeeCapacity": 4,
+    "url": "https://YOUR-DOMAIN.com/",
+    "sameAs": [
+      "https://www.airbnb.com.au/rooms/684477088875296411",
+      "https://holiday-rentals.guestybookings.com/en/properties/62ea5cbd4b87300033e2c9a3"
+    ]
+  }
+  </script>
+</body>
+</html>
