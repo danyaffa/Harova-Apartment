@@ -10,8 +10,57 @@
   />
   <link rel="canonical" href="https://holidayapartmenttelavivjaffa.com/contact.html" />
   <link rel="stylesheet" href="/public/styles.css" />
+
+  <style>
+    .contact-wrapper {
+      max-width: 650px;
+      margin: 40px auto 60px auto;
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+    .contact-wrapper h2 { margin-top: 0; }
+    .contact-wrapper label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .contact-wrapper input,
+    .contact-wrapper textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .contact-wrapper .row {
+      display: flex;
+      gap: 20px;
+    }
+    .contact-wrapper .row > div { flex: 1; }
+    .contact-wrapper button {
+      width: 100%;
+      background: #0c4a81;
+      padding: 14px;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .contact-wrapper button:hover { background: #08375f; }
+    @media (max-width: 640px) {
+      .contact-wrapper { margin: 20px; padding: 24px; }
+      .contact-wrapper .row { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="logo-block">
       <div class="logo-title">Harova Apartment</div>
@@ -29,6 +78,7 @@
   <main class="page-main">
     <section class="content-section">
       <h1>Contact &amp; Booking</h1>
+
       <p>
         Harova Apartment is managed by professional holiday-rental agents.
         For your security and convenience, all bookings and payments are handled through our Airbnb listing.
@@ -48,72 +98,69 @@
         </li>
       </ul>
 
-      <h2>Prepare your message to the host</h2>
-      <p class="small">
-        Use this short form to prepare your enquiry. When you click
-        <strong>Send enquiry</strong>, the message will be sent directly to the host by email.
-        <strong>Note:</strong> Booking is still completed on the Airbnb platform.
-      </p>
+      <div class="contact-wrapper">
 
-      <!-- FORM: sends via FormSubmit to leffleryd@gmail.com -->
-      <form
-        id="enquiry-form"
-        class="enquiry-form"
-        action="https://formsubmit.co/410640ea7c4babd936bb1bebebecbb610"
-        method="POST"
-      >
-        <!-- visible fields -->
-        <label>
-          Your name
-          <input type="text" id="enquiry-name" name="Name" required />
-        </label>
+        <h2>Prepare your message to the host</h2>
 
-        <label>
-          Email
-          <input type="email" id="enquiry-email" name="Email" required />
-        </label>
+        <p class="small">
+          Use this short form to prepare your enquiry. When you click
+          <strong>Send enquiry</strong>, the message will be sent directly to the host by email.<br>
+          <strong>Note:</strong> Complete your booking on Airbnb
+          <a
+            href="https://www.airbnb.com.au/rooms/684477088875296411?source_impression_id=p3_1763588372_P3t1WPtZQeQF3JmC"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            by clicking here
+          </a>.
+        </p>
 
-        <div class="enquiry-row">
-          <label>
-            Check-in date
-            <input type="date" id="enquiry-checkin" name="Check-in date" />
-          </label>
-          <label>
-            Check-out date
-            <input type="date" id="enquiry-checkout" name="Check-out date" />
-          </label>
-        </div>
+        <form
+          id="enquiry-form"
+          action="https://formsubmit.co/leffleryd@gmail.com"
+          method="POST"
+        >
+          <label>Your name</label>
+          <input type="text" name="Name" required />
 
-        <label>
-          Number of guests
-          <input type="number" id="enquiry-guests" name="Guests" min="1" max="6" value="2" />
-        </label>
+          <label>Email</label>
+          <input type="email" name="Email" required />
 
-        <label>
-          Message to host (optional)
+          <div class="row">
+            <div>
+              <label>Check-in date</label>
+              <input type="date" name="Check-in date" />
+            </div>
+
+            <div>
+              <label>Check-out date</label>
+              <input type="date" name="Check-out date" />
+            </div>
+          </div>
+
+          <label>Number of guests</label>
+          <input type="number" name="Guests" min="1" max="6" value="2" />
+
+          <label>Message to host (optional)</label>
           <textarea
-            id="enquiry-message"
             name="Message"
             rows="4"
             placeholder="Example: We arrive late at night, is self check-in possible?"
           ></textarea>
-        </label>
 
-        <!-- FormSubmit options -->
-        <input type="hidden" name="_subject" value="Harova Apartment – New Enquiry" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <!-- After submit, send them to Airbnb listing (change if you prefer a thank-you page) -->
-        <input
-          type="hidden"
-          name="_next"
-          value="https://www.airbnb.com.au/rooms/684477088875296411"
-        />
+          <input type="hidden" name="_subject" value="Harova Apartment – New Enquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://www.airbnb.com.au/rooms/684477088875296411"
+          />
 
-        <button type="submit" class="btn primary">
-          Send enquiry
-        </button>
-      </form>
+          <button type="submit">Send enquiry</button>
+        </form>
+
+      </div>
     </section>
   </main>
 
@@ -124,5 +171,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
