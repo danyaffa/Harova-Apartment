@@ -2,101 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact & Booking – Harova Apartment</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f3eee7; }
-    .container { max-width: 900px; margin: 40px auto; padding: 20px; }
-    h1 { font-size: 32px; margin-bottom: 10px; }
-    p { font-size: 16px; margin-bottom: 20px; }
-    label { display: block; margin-bottom: 10px; font-weight: bold; }
-    input, textarea {
-      width: 100%; padding: 10px; border-radius: 6px;
-      border: 1px solid #ccc; margin-bottom: 15px; font-size: 16px;
-    }
-    .btn {
-      width: 100%; padding: 14px; background: #003366;
-      color: white; border: none; font-size: 18px;
-      border-radius: 6px; cursor: pointer;
-    }
-    .btn:hover {
-      background: #002244;
-    }
-  </style>
+  <title>Contact – Harova Apartment, Jaffa Flea Market</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Contact details for Harova Apartment in the Jaffa Flea Market, Tel Aviv-Yafo – send an enquiry about your stay."
+  />
+  <link rel="canonical" href="https://holidayapartmenttelavivjaffa.com/contact.html" />
+  <link rel="stylesheet" href="/public/styles.css" />
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="logo-block">
+      <div class="logo-title">Harova Apartment</div>
+      <div class="logo-subtitle">Jaffa Flea Market • Tel Aviv-Yafo</div>
+    </div>
+    <nav class="top-nav">
+      <a href="/index.html">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/location.html">Location</a>
+      <a href="/contact.html" class="active">Contact</a>
+      <a href="/ai-discovery.html">AI Discovery</a>
+    </nav>
+  </header>
 
-  <div class="container">
-    <h1>Contact & Booking</h1>
+  <main class="page-main">
+    <section class="content-section">
+      <h1>Contact &amp; Booking</h1>
+      <p>
+        Harova Apartment is managed by professional holiday-rental agents.
+        For your security and convenience, all bookings and payments are handled through our Airbnb listing.
+      </p>
 
-    <p>
-      Harova Apartment is managed by professional holiday-rental agents.  
-      For your security and convenience, all bookings are handled through our Airbnb listing.
-    </p>
+      <h2>Book on Airbnb</h2>
+      <ul class="link-list">
+        <li>
+          <strong>Airbnb listing:</strong>
+          <a
+            href="https://www.airbnb.com.au/rooms/684477088875296411"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View prices, availability and reviews
+          </a>
+        </li>
+      </ul>
 
-    <h3>Book on Airbnb</h3>
-    <p><a href="https://www.airbnb.com.au/rooms/684477088875296411" target="_blank">
-      View prices, availability and reviews
-    </a></p>
+      <h2>Prepare your message to the host</h2>
+      <p class="small">
+        Use this short form to prepare your enquiry. When you click
+        <strong>Send enquiry</strong>, the message will be sent directly to the host by email.
+        <strong>Note:</strong> Booking is still completed on the Airbnb platform.
+      </p>
 
-    <h2>Prepare your message to the host</h2>
+      <!-- FORM: sends via FormSubmit to leffleryd@gmail.com -->
+      <form
+        id="enquiry-form"
+        class="enquiry-form"
+        action="https://formsubmit.co/leffleryd@gmail.com"
+        method="POST"
+      >
+        <!-- visible fields -->
+        <label>
+          Your name
+          <input type="text" id="enquiry-name" name="Name" required />
+        </label>
 
-    <p>
-      Fill in your enquiry below. When you click <strong>Send Email</strong>,
-      your email app will open automatically with all fields filled in,
-      ready to send directly to <strong>leffleryd@gmail.com</strong>.
-    </p>
+        <label>
+          Email
+          <input type="email" id="enquiry-email" name="Email" required />
+        </label>
 
-    <!-- FORM -->
-    <form id="contactForm">
+        <div class="enquiry-row">
+          <label>
+            Check-in date
+            <input type="date" id="enquiry-checkin" name="Check-in date" />
+          </label>
+          <label>
+            Check-out date
+            <input type="date" id="enquiry-checkout" name="Check-out date" />
+          </label>
+        </div>
 
-      <label>Your name</label>
-      <input type="text" id="name" required />
+        <label>
+          Number of guests
+          <input type="number" id="enquiry-guests" name="Guests" min="1" max="6" value="2" />
+        </label>
 
-      <label>Your email</label>
-      <input type="email" id="email" required />
+        <label>
+          Message to host (optional)
+          <textarea
+            id="enquiry-message"
+            name="Message"
+            rows="4"
+            placeholder="Example: We arrive late at night, is self check-in possible?"
+          ></textarea>
+        </label>
 
-      <label>Check-in date</label>
-      <input type="date" id="checkin" />
+        <!-- FormSubmit options -->
+        <input type="hidden" name="_subject" value="Harova Apartment – New Enquiry" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <!-- After submit, send them to Airbnb listing (change if you prefer a thank-you page) -->
+        <input
+          type="hidden"
+          name="_next"
+          value="https://www.airbnb.com.au/rooms/684477088875296411"
+        />
 
-      <label>Check-out date</label>
-      <input type="date" id="checkout" />
+        <button type="submit" class="btn primary">
+          Send enquiry
+        </button>
+      </form>
+    </section>
+  </main>
 
-      <label>Number of guests</label>
-      <input type="number" id="guests" min="1" max="6" />
-
-      <label>Message to host (optional)</label>
-      <textarea id="message" rows="4" placeholder="Example: We arrive late at night..."></textarea>
-
-      <button type="button" class="btn" onclick="sendEmail()">Send Email</button>
-
-    </form>
-  </div>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
+  </footer>
 
   <script>
-    function sendEmail() {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const checkin = document.getElementById("checkin").value;
-      const checkout = document.getElementById("checkout").value;
-      const guests = document.getElementById("guests").value;
-      const message = document.getElementById("message").value;
-
-      const subject = `Harova Apartment Enquiry from ${name}`;
-      const body =
-        `Name: ${name}%0D%0A` +
-        `Email: ${email}%0D%0A` +
-        `Check-in: ${checkin}%0D%0A` +
-        `Check-out: ${checkout}%0D%0A` +
-        `Guests: ${guests}%0D%0A` +
-        `%0D%0AMessage:%0D%0A${message}`;
-
-      window.location.href =
-        `mailto:leffleryd@gmail.com?subject=${subject}&body=${body}`;
-    }
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
