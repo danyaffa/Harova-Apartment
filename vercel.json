@@ -5,13 +5,19 @@
     { "src": "public/*.css", "use": "@vercel/static" }
   ],
   "routes": [
-    {"src": "/", "dest": "/index.html"},
-    {"src": "/index", "dest": "/index.html"},
+    /* 1. Explicitly route the sub-pages first */
     {"src": "/gallery", "dest": "/gallery.html"},
     {"src": "/location", "dest": "/location.html"},
     {"src": "/contact", "dest": "/contact.html"},
     {"src": "/ai-discovery", "dest": "/ai-discovery.html"},
+    
+    /* 2. Route static assets from the /public folder */
     {"src": "/public/(.*)", "dest": "/public/$1"},
+    
+    /* 3. Set the home page for the root path */
+    {"src": "/", "dest": "/index.html"},
+    
+    /* 4. Catch-all for any other path (should also go to index.html) */
     {"src": "/(.*)", "dest": "/index.html"}
   ]
 }
