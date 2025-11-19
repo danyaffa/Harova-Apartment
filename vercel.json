@@ -5,11 +5,22 @@
     { "src": "public/*.css", "use": "@vercel/static" }
   ],
   "routes": [
+    /* Route HTML files explicitly */
+    { "src": "/gallery.html", "dest": "/gallery.html" },
+    { "src": "/location.html", "dest": "/location.html" },
+    { "src": "/contact.html", "dest": "/contact.html" },
+    { "src": "/ai-discovery.html", "dest": "/ai-discovery.html" },
+
+    /* Handle the short, non-.html versions */
     { "src": "/gallery", "dest": "/gallery.html" },
     { "src": "/location", "dest": "/location.html" },
     { "src": "/contact", "dest": "/contact.html" },
     { "src": "/ai-discovery", "dest": "/ai-discovery.html" },
+    
+    /* Route static assets */
     { "src": "/public/(.*)", "dest": "/public/$1" },
+    
+    /* Root path and Catch-all */
     { "src": "/", "dest": "/index.html" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
