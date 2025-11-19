@@ -9,6 +9,7 @@
     { "src": "/location", "dest": "/location.html" },
     { "src": "/contact", "dest": "/contact.html" },
     { "src": "/ai-discovery", "dest": "/ai-discovery.html" },
+    { "src": "/public/(.*)", "dest": "/public/$1" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
