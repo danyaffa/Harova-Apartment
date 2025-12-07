@@ -2,27 +2,24 @@
 
 import Head from "next/head";
 import Link from "next/link";
-
-const SITE_URL = "https://harovaapartment.com";
+import config from "../../config/harovaapartment.json";
 
 export default function HarovaApartmentSeoPage() {
-  const title =
-    "Harova Apartment – Private Holiday Rental in Jerusalem’s Jewish Quarter";
-  const description =
-    "Harova Apartment is a private, fully equipped holiday rental in the Jewish Quarter of Jerusalem, just a short walk from the Western Wall.";
+  const title = `${config.name} – Private Holiday Rental in Jerusalem’s Jewish Quarter`;
+  const description = `${config.name} is a private, fully equipped holiday rental in the Jewish Quarter of Jerusalem, just a short walk from the Western Wall.`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Apartment",
-    name: "Harova Apartment",
-    url: SITE_URL,
+    name: config.name,
+    url: config.domain,
     description,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Jerusalem",
-      addressCountry: "IL",
+      addressCountry: "IL"
     },
-    image: [`${SITE_URL}/harova_main.jpg`],
+    image: [`${config.domain}${config.logo}`]
   };
 
   return (
@@ -34,19 +31,19 @@ export default function HarovaApartmentSeoPage() {
           name="keywords"
           content="Harova Apartment, Jerusalem holiday rental, Jewish Quarter apartment, Old City accommodation"
         />
-        <link rel="canonical" href={`${SITE_URL}/seo/harova-apartment`} />
+        <link rel="canonical" href={`${config.domain}${config.seoPath}`} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Harova Apartment – Jerusalem Rental" />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={`${SITE_URL}/seo/harova-apartment`} />
-        <meta property="og:site_name" content="Harova Apartment" />
-        <meta property="og:image" content={`${SITE_URL}/harova_main.jpg`} />
+        <meta property="og:url" content={`${config.domain}${config.seoPath}`} />
+        <meta property="og:site_name" content={config.name} />
+        <meta property="og:image" content={`${config.domain}${config.logo}`} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Harova Apartment – Jerusalem Rental" />
+        <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={`${SITE_URL}/harova_main.jpg`} />
+        <meta name="twitter:image" content={`${config.domain}${config.logo}`} />
 
         <script
           type="application/ld+json"
@@ -55,10 +52,10 @@ export default function HarovaApartmentSeoPage() {
       </Head>
 
       <main className="mx-auto max-w-3xl px-4 py-10 prose prose-slate">
-        <h1>Harova Apartment – Stay in Jerusalem’s Jewish Quarter</h1>
+        <h1>{config.name} – Stay in Jerusalem’s Jewish Quarter</h1>
 
         <p>
-          <strong>Harova Apartment</strong> is a private holiday apartment in the
+          <strong>{config.name}</strong> is a private holiday apartment in the
           Jewish Quarter of Jerusalem’s Old City, ideal for couples or families
           who want to stay close to the Western Wall.
         </p>
@@ -74,7 +71,7 @@ export default function HarovaApartmentSeoPage() {
         <p>
           For booking information, photos, and availability, please visit the{" "}
           <Link href="/">
-            <a>Harova Apartment homepage</a>
+            <a>{config.name} homepage</a>
           </Link>
           .
         </p>
