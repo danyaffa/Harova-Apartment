@@ -1,0 +1,6 @@
+# FILE: /public/robots.txt
+
+User-agent: *
+Allow: /
+
+Sitemap: https://harovaapartment.com/sitemap.xml
