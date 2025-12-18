@@ -1,24 +1,21 @@
-<!-- FILE: /sitemap.xml -->
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://holidayapartmenttelavivjaffa.com/</loc>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://holidayapartmenttelavivjaffa.com/gallery.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://holidayapartmenttelavivjaffa.com/location.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://holidayapartmenttelavivjaffa.com/contact.html</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://holidayapartmenttelavivjaffa.com/ai-discovery.html</loc>
-    <priority>0.6</priority>
-  </url>
-</urlset>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Holiday Apartment Tel Aviv Jaffa</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://holidayapartmenttelavivjaffa.com/" />
+
+  <!-- SEO basics -->
+  <meta name="description" content="Holiday apartment in Tel Aviv Jaffa. Comfortable, central, and fully equipped for short stays." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <!-- page content -->
+</body>
+</html>
