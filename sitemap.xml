@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Holiday Apartment Tel Aviv Jaffa</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://holidayapartmenttelavivjaffa.com/" />
+  <url>
+    <loc>https://holidayapartmenttelavivjaffa.com/</loc>
+    <lastmod>2025-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-  <!-- SEO basics -->
-  <meta name="description" content="Holiday apartment in Tel Aviv Jaffa. Comfortable, central, and fully equipped for short stays." />
-  <meta name="robots" content="index,follow" />
+</urlset>
 
-  <!-- Viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-
-<body>
-  <!-- page content -->
-</body>
-</html>
