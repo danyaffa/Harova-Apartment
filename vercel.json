@@ -1,20 +1,13 @@
 {
   "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "builds": [
     { "src": "*.html", "use": "@vercel/static" },
     { "src": "public/*.css", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/gallery.html", "dest": "/gallery.html" },
-    { "src": "/location.html", "dest": "/location.html" },
-    { "src": "/contact.html", "dest": "/contact.html" },
-    { "src": "/ai-discovery.html", "dest": "/ai-discovery.html" },
-    { "src": "/gallery", "dest": "/gallery.html" },
-    { "src": "/location", "dest": "/location.html" },
-    { "src": "/contact", "dest": "/contact.html" },
-    { "src": "/ai-discovery", "dest": "/ai-discovery.html" },
     { "src": "/public/(.*)", "dest": "/public/$1" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/", "dest": "/index.html" }
   ]
 }
