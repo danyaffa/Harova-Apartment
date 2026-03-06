@@ -84,6 +84,56 @@
     <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
   </footer>
 
+  <!-- ✅ JSON-LD: VacationRental (comprehensive for AI crawlers) + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VacationRental",
+    "name": "Harova Apartment",
+    "alternateName": "Harova Apartment – Jaffa Flea Market Holiday Rental",
+    "description": "Harova Apartment is a stylish 2-bedroom, 2-bathroom holiday apartment with safe room (mamad) and free parking, in the heart of Jaffa Flea Market, Tel Aviv-Yafo, Israel. Ideal for up to 4 guests – couples, friends or a small family visiting Tel Aviv and Jaffa.",
+    "url": "https://holidayapartmenttelavivjaffa.com/",
+    "image": "https://a0.muscache.com/im/pictures/miso/Hosting-684477088875296411/original/04504c49-8e40-49e4-875f-f2e9e3b766e4.jpeg?im_w=1200",
+    "numberOfBedrooms": 2,
+    "numberOfBathroomsTotal": 2,
+    "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jaffa Flea Market area",
+      "addressLocality": "Tel Aviv-Yafo",
+      "addressRegion": "Tel Aviv District",
+      "addressCountry": "IL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.0536,
+      "longitude": 34.7536
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Safe room (mamad)", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Elevator", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Heating", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Fully equipped kitchen", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Smart-lock self check-in", "value": true }
+    ],
+    "tourBookingPage": "https://www.airbnb.com.au/rooms/684477088875296411",
+    "sameAs": ["https://www.airbnb.com.au/rooms/684477088875296411"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://holidayapartmenttelavivjaffa.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Discovery", "item": "https://holidayapartmenttelavivjaffa.com/ai-discovery" }
+    ]
+  }
+  </script>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>

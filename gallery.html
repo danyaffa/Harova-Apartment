@@ -104,6 +104,32 @@
     <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
   </footer>
 
+  <!-- ✅ JSON-LD: ImageGallery + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Harova Apartment Photo Gallery",
+    "description": "Full photo gallery of Harova Apartment in the Jaffa Flea Market – living room, bedrooms, kitchen, bathrooms, safe room, parking and surroundings.",
+    "url": "https://holidayapartmenttelavivjaffa.com/gallery",
+    "about": {
+      "@type": "VacationRental",
+      "name": "Harova Apartment",
+      "url": "https://holidayapartmenttelavivjaffa.com/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://holidayapartmenttelavivjaffa.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://holidayapartmenttelavivjaffa.com/gallery" }
+    ]
+  }
+  </script>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 

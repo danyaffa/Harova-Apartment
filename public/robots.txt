@@ -1,6 +1,5 @@
-# FILE: /public/robots.txt
-
+# Harova Apartment – Holiday Apartment in Jaffa Flea Market, Tel Aviv-Yafo
 User-agent: *
 Allow: /
 
-Sitemap: https://harovaapartment.com/sitemap.xml
+Sitemap: https://holidayapartmenttelavivjaffa.com/sitemap.xml

@@ -76,6 +76,40 @@
     <p>© <span id="year"></span> Harova Apartment – Jaffa, Tel Aviv-Yafo, Israel</p>
   </footer>
 
+  <!-- ✅ JSON-LD: Place + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Harova Apartment – Jaffa Flea Market Location",
+    "description": "Harova Apartment is located in a quiet street right next to the Jaffa Flea Market (Shuk HaPishpeshim) in Tel Aviv-Yafo. Walking distance to Old Jaffa, Jaffa Port, Jaffa Clock Tower, and the beachfront promenade.",
+    "url": "https://holidayapartmenttelavivjaffa.com/location",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 32.0536,
+      "longitude": 34.7536
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jaffa Flea Market area",
+      "addressLocality": "Tel Aviv-Yafo",
+      "addressRegion": "Tel Aviv District",
+      "addressCountry": "IL"
+    },
+    "hasMap": "https://maps.app.goo.gl/KKWiHC5LGBwJdjyY8"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://holidayapartmenttelavivjaffa.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Location", "item": "https://holidayapartmenttelavivjaffa.com/location" }
+    ]
+  }
+  </script>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
